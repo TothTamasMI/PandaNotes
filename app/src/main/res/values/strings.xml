@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">PandaNotes</string>
+
+    <string name="Splash_string">
+        <font color="#FF000000">Make and manage your notes with</font>
+        <font color="#FF7562">PandaNotes</font>
+    </string>
+
+</resources>

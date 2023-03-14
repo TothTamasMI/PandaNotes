@@ -1,4 +1,4 @@
-package com.example.pandanotes.data
+package com.example.pandanotes
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

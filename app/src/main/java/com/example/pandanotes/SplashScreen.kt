@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import com.example.pandanotes.data.StartingActivity
 
 class SplashScreen : AppCompatActivity() {
     @Override

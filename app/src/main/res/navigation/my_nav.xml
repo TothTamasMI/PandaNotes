@@ -6,7 +6,7 @@
     app:startDestination="@id/startFragment">
     <fragment
         android:id="@+id/startFragment"
-        android:name="com.example.pandanotes.StartFragment"
+        android:name="com.example.pandanotes.fragments.StartFragment"
         android:label="fragment_start"
         tools:layout="@layout/fragment_start" >
         <action
@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/listFragment"
-        android:name="com.example.pandanotes.ListFragment"
+        android:name="com.example.pandanotes.fragments.ListFragment"
         android:label="fragment_list2"
         tools:layout="@layout/fragment_list2" >
         <action
@@ -24,7 +24,7 @@
     </fragment>
     <fragment
         android:id="@+id/addFragment"
-        android:name="com.example.pandanotes.AddFragment"
+        android:name="com.example.pandanotes.fragments.AddFragment"
         android:label="fragment_add"
         tools:layout="@layout/fragment_add" >
         <action

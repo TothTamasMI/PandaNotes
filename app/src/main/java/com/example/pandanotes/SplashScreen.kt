@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import com.example.pandanotes.data.StartingActivity
 
 class SplashScreen : AppCompatActivity() {
     @Override
@@ -19,7 +20,7 @@ class SplashScreen : AppCompatActivity() {
 
         Handler(Looper.getMainLooper()).postDelayed(Runnable(){
             run(){
-                val i = Intent(this, MainActivity::class.java)
+                val i = Intent(this, StartingActivity::class.java)
 
                 startActivity(i)
                 finish()

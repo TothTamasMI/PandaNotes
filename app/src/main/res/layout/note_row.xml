@@ -10,11 +10,13 @@
 
     <TextView
         android:id="@+id/noteTitle_txt"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
+        android:gravity="center"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Note Example"
         android:layout_margin="16dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/round_button_shape_dark"
+        android:text="Note Example"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,6 +40,7 @@
             <TextView
                 android:id="@+id/noteBody_txt"
                 android:layout_margin="16dp"
+                android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Note body example, some random worlds to fill the space: Wrote water woman of heart it total other. By in entirely securing suitable graceful at families improved. Zealously few furniture repulsive was agreeable consisted difficult. Collected breakfast estimable questions in to favourite it. Known he place worth words it as to. Spoke now noise off smart her ready.

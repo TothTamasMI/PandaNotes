@@ -1,10 +1,12 @@
 package com.example.pandanotes.fragments
 
+import android.app.AlertDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -14,6 +16,7 @@ import com.example.pandanotes.R
 import com.example.pandanotes.data.NoteDatabase
 import kotlinx.android.synthetic.main.fragment_add.view.*
 import kotlinx.android.synthetic.main.fragment_list2.view.*
+import kotlinx.android.synthetic.main.fragment_update.view.*
 import kotlinx.android.synthetic.main.note_row.view.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -49,7 +52,25 @@ class ListFragment : Fragment() {
             findNavController().navigate(R.id.action_listFragment_to_addFragment)
         }
 
+        view.deleteAllButton.setOnClickListener {
+            deleteAllNote()
+        }
+
         return view
+    }
+
+    private fun deleteAllNote(){
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setPositiveButton("Yes"){_,_ ->
+            GlobalScope.launch(Dispatchers.Main) {
+                noteDb.noteDao().deleteAllNote()
+            }
+            Toast.makeText(requireContext(), "Successfully deleted everything!", Toast.LENGTH_LONG).show()
+        }
+        builder.setNegativeButton("No"){_,_ -> }
+        builder.setTitle("Delete everything")
+        builder.setMessage("Are you sure want to delete everything?")
+        builder.create().show()
     }
 
 }

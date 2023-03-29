@@ -6,7 +6,8 @@
     android:layout_height="wrap_content"
     android:padding="24sp"
     android:layout_margin="16dp"
-    android:background="@drawable/round_button_shape">
+    android:background="@drawable/round_button_shape"
+    android:id="@+id/rowLayout">
 
     <TextView
         android:id="@+id/noteTitle_txt"

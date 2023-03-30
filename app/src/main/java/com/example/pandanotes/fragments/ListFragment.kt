@@ -1,11 +1,13 @@
 package com.example.pandanotes.fragments
 
 import android.app.AlertDialog
+import android.app.Dialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.lifecycle.Observer
@@ -14,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.pandanotes.ListAdapter
 import com.example.pandanotes.R
 import com.example.pandanotes.data.NoteDatabase
+import kotlinx.android.synthetic.main.delete_dialog_layout.view.*
 import kotlinx.android.synthetic.main.fragment_add.view.*
 import kotlinx.android.synthetic.main.fragment_list2.view.*
 import kotlinx.android.synthetic.main.fragment_update.view.*
@@ -60,7 +63,7 @@ class ListFragment : Fragment() {
     }
 
     private fun deleteAllNote(){
-        val builder = AlertDialog.Builder(requireContext())
+        /*val builder = AlertDialog.Builder(requireContext())
         builder.setPositiveButton("Yes"){_,_ ->
             GlobalScope.launch(Dispatchers.Main) {
                 noteDb.noteDao().deleteAllNote()
@@ -70,7 +73,24 @@ class ListFragment : Fragment() {
         builder.setNegativeButton("No"){_,_ -> }
         builder.setTitle("Delete everything")
         builder.setMessage("Are you sure want to delete everything?")
-        builder.create().show()
+        builder.create().show()*/
+
+        val builder = AlertDialog.Builder(requireContext(), R.style.CustomAlertDialog)
+            .create()
+        val view = layoutInflater.inflate(R.layout.delete_dialog_layout,null)
+        builder.setView(view)
+        view.buttonExit.setOnClickListener {
+            builder.dismiss()
+        }
+        view.buttonNo.setOnClickListener {  builder.dismiss()}
+        view.buttonYes.setOnClickListener {
+            GlobalScope.launch(Dispatchers.Main) {
+                noteDb.noteDao().deleteAllNote()
+            }
+            Toast.makeText(requireContext(), "Successfully deleted everything!", Toast.LENGTH_LONG).show()
+            builder.dismiss()
+        }
+        builder.show()
     }
 
 }

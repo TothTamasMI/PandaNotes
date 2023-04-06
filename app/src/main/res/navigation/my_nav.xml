@@ -11,7 +11,8 @@
         tools:layout="@layout/fragment_start" >
         <action
             android:id="@+id/action_startFragment_to_listFragment"
-            app:destination="@id/listFragment" />
+            app:destination="@id/listFragment"
+            app:enterAnim="@anim/start_fragment_animation" />
     </fragment>
     <fragment
         android:id="@+id/listFragment"
@@ -20,10 +21,14 @@
         tools:layout="@layout/fragment_list2" >
         <action
             android:id="@+id/action_listFragment_to_addFragment"
-            app:destination="@id/addFragment" />
+            app:destination="@id/addFragment"
+            app:enterAnim="@anim/add_button_animation_in"
+            app:popExitAnim="@anim/add_button_animation_out" />
         <action
             android:id="@+id/action_listFragment_to_updateFragment"
-            app:destination="@id/updateFragment" />
+            app:destination="@id/updateFragment"
+            app:enterAnim="@anim/add_button_animation_in"
+            app:popExitAnim="@anim/add_button_animation_out" />
     </fragment>
     <fragment
         android:id="@+id/addFragment"
@@ -32,7 +37,8 @@
         tools:layout="@layout/fragment_add" >
         <action
             android:id="@+id/action_addFragment_to_listFragment"
-            app:destination="@id/listFragment" />
+            app:destination="@id/listFragment"
+            app:enterAnim="@anim/add_button_animation_out" />
     </fragment>
     <fragment
         android:id="@+id/updateFragment"
@@ -41,7 +47,8 @@
         tools:layout="@layout/fragment_update" >
         <action
             android:id="@+id/action_updateFragment_to_listFragment"
-            app:destination="@id/listFragment" />
+            app:destination="@id/listFragment"
+            app:enterAnim="@anim/add_button_animation_out" />
         <argument
             android:name="currentNote"
             app:argType="com.example.pandanotes.data.Note" />
